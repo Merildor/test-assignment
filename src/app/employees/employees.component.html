@@ -1,0 +1,16 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Total Time in Month</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let employee of allEmployees">  
+      <tr>
+        <td>{{employee.name}}</td>
+        <td></td>
+        <td><a href="#">Edit</a></td>
+      </tr>  
+    </tbody>    
+</table>
