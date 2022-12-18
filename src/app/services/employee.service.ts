@@ -22,4 +22,13 @@ export class EmployeeService {
       },
     };
   }
+
+  getAllHours(startDate: string, endDate: string){
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    let diff = Math.abs(end.getTime()/1000-start.getTime()/1000);
+    
+    return Math.round(diff/60/60);    
+  }
 }

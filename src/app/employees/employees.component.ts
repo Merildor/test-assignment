@@ -32,7 +32,7 @@ export class EmployeesComponent implements OnInit {
       for (let i = 0; i < this.filteredEmployees.length; i++) {
         for (let j = 0; j < this.allEmployees.length; j++) {
           if(this.filteredEmployees[i].EmployeeName === this.allEmployees[j].EmployeeName){
-            const hours = this.getAllHours(this.allEmployees[j].StarTimeUtc, this.allEmployees[j].EndTimeUtc);
+            const hours = this.employeeService.getAllHours(this.allEmployees[j].StarTimeUtc, this.allEmployees[j].EndTimeUtc);
             this.filteredEmployees[i].hours += hours;
           }
         }         
@@ -41,12 +41,5 @@ export class EmployeesComponent implements OnInit {
     }); 
   }
 
-  getAllHours(startDate: string, endDate: string){
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-
-    let diff = Math.abs(end.getTime()/1000-start.getTime()/1000);
-    
-    return Math.round(diff/60/60);    
-  }
+  
 }
