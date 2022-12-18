@@ -1,16 +1,44 @@
-<table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Total Time in Month</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let employee of filteredEmployees" [ngStyle]="{'background-color':employee.hours < 100 ? 'orange' : ''}">  
-      <tr>
-        <td>{{employee.EmployeeName}}</td>
-        <td>{{employee.hours}}</td>
-        <td><a href="#">Edit</a></td>
-      </tr>  
-    </tbody>    
-</table>
+<div class="pageWrap">
+  <section class="employeeTable">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Total Time in Month</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody
+        *ngFor="let employee of filteredEmployees"
+        [ngStyle]="{ 'background-color': employee.hours < 100 ? 'orange' : '' }"
+      >
+        <tr>
+          <td>{{ employee.EmployeeName }}</td>
+          <td>{{ employee.hours }}</td>
+          <td><a href="#">Edit</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="employeeChart" id="chart">
+    <apx-chart
+      [series]="chartHours"
+      [chart]="{ width: 500, type: 'pie' }"
+      [labels]="chartNames"
+      [theme]="{ monochrome: { enabled: true } }"
+      [responsive]="[
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }
+      ]"
+    ></apx-chart>
+  </section>
+</div>
