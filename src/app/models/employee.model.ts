@@ -5,4 +5,5 @@ export interface Employee {
     EndTimeUtc: string;
     EntryNotes: string;
     DeletedOn: null;
+    hours: number;
 }

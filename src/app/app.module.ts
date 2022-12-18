@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ChartComponent } from './chart/chart.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { HeaderComponent } from './header/header.component';
+import { EmployeeService } from './services/employee.service';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

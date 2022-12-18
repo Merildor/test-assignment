@@ -6,10 +6,10 @@
         <th scope="col">Actions</th>
       </tr>
     </thead>
-    <tbody *ngFor="let employee of allEmployees">  
+    <tbody *ngFor="let employee of filteredEmployees" [ngStyle]="{'background-color':employee.hours < 100 ? 'orange' : ''}">  
       <tr>
-        <td>{{employee.name}}</td>
-        <td></td>
+        <td>{{employee.EmployeeName}}</td>
+        <td>{{employee.hours}}</td>
         <td><a href="#">Edit</a></td>
       </tr>  
     </tbody>    
